@@ -5,4 +5,88 @@
     android:orientation="vertical"
     android:padding="7dp">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Player's Name: ">
+        </TextView>
+
+        <EditText
+            android:id="@+id/playerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter name here">
+        </EditText>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Player's Symbol: ">
+
+        </TextView>
+
+        <RadioButton
+            android:id="@+id/noughts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="noughts">
+
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/crosses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="crosses">
+
+        </RadioButton>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Player moves first? ">
+        </TextView>
+
+        <RadioButton
+            android:id="@+id/first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="yes">
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/notFirst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="no">
+        </RadioButton>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/playButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PLAY">
+    </Button>
+
 </LinearLayout>

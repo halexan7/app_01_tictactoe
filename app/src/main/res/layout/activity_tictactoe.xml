@@ -1,9 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:rowCount="2"
-    android:columnCount="1"
-    android:useDefaultMargins="true">
+    android:orientation="vertical">
 
-</GridLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/playerInfo"
+        android:gravity="center">
+
+    </TextView>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:rowCount="3"
+        android:columnCount="3"
+        android:useDefaultMargins="true">
+
+        <Button
+            android:tag="1,0"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"/>
+
+        <Button
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"/>
+
+        <Button
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"/>
+
+        <Button
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"/>
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"/>
+
+    </GridLayout>
+
+</LinearLayout>
