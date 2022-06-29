@@ -14,6 +14,7 @@
     </TextView>
 
     <GridLayout
+        android:id="@+id/gridLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:rowCount="3"
@@ -21,39 +22,47 @@
         android:useDefaultMargins="true">
 
         <Button
-            android:tag="1,0"
+            android:tag="0,1"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"/>
 
         <Button
+            android:tag="0,2"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"/>
 
         <Button
+            android:tag="0,3"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"/>
 
         <Button
+            android:tag="1,1"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"/>
 
         <Button
+            android:tag="1,2"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"/>
 
         <Button
+            android:tag="1,3"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"/>
 
         <Button
+            android:tag="2,1"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"/>
 
         <Button
+            android:tag="2,2"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"/>
 
         <Button
+            android:tag="2,3"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"/>
 

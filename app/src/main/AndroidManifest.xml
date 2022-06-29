@@ -14,8 +14,12 @@
         android:theme="@style/Theme.App_01_tictactoe"
         tools:targetApi="31">
         <activity
-            android:name=".TicTacToeActivity"
+            android:name="edu.msudenver.tictactoe.TicTacToeActivity"
             android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="edu.msudenver.tictactoe.MainActivity"
+            android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
