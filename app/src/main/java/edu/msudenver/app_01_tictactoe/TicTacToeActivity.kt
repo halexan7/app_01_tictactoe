@@ -21,7 +21,7 @@ class TicTacToeActivity : AppCompatActivity(),View.OnClickListener {
 
 
     // TODO (suggested): maintain a reference to a TicTacToe object
-    val game: TicTacToe ?= null
+    var game: TicTacToe ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +31,7 @@ class TicTacToeActivity : AppCompatActivity(),View.OnClickListener {
         val playerName = intent.getStringExtra("name")
         val symbol = intent.getCharExtra("symbol",'?')
         val firstMove = intent.getBooleanExtra("first move",false)
+        game = TicTacToe(playerName.toString(), symbol)
 
         // TODO (suggested): get a reference to the TextView "player info" area; update the TextView with the player's name and symbol
         playerInfo = findViewById(R.id.playerInfo)
@@ -52,17 +53,42 @@ class TicTacToeActivity : AppCompatActivity(),View.OnClickListener {
 
     // TODO (suggested): display a Toast with a text based on the game's result
     fun showResults() {
+        if (game?.isGameOver() == true){
+            Toast.makeText(this, "game over", Toast.LENGTH_LONG).show()
+        }
     }
 
-    // TODO (suggested): cast the given view as a Button; disable the button so you don't forget; get the button's tag and use it to infer the player's move coordinates; make the move and update the button's text with the player's symbol; if the game is over, show results; otherwise, have the computer play; use TitTacToe's last move and "findViewWithTag" to get a reference to the button of the computer's play; disable the button so you don't forget; update the button's text with the computer's symbol; if the game is over, show results
+    // TODO (suggested): cast the given view as a Button;
+    //  disable the button so you don't forget;
+    //  get the button's tag and use it to infer the player's move coordinates;
+    //  make the move and update the button's text with the player's symbol;
+    //  if the game is over, show results;
+    //  otherwise, have the computer play;
+    //  use TitTacToe's last move and "findViewWithTag" to get a reference to the button of the computer's play;
+    //  disable the button so you don't forget;
+    //  update the button's text with the computer's symbol;
+    //  if the game is over, show results
     override fun onClick(view: View?) {
         val button = view as Button
         button.isEnabled = false
-        val tag = button.tag
-        game?.playerPlay(tag as Int)
+        val tag = button.tag.toString()
+        val arr = tag.split(",")
+        game?.playerPlay(arr[0].toInt(), arr[1].toInt())
         button.text = intent.getCharExtra("symbol",'?').toString()
-
-
+        if (game?.isGameOver() == true){
+            showResults()
+        }
+        else {
+            game?.computerPlay()
+            val last = game?.lastMove.toString()
+            val button: Button = gridLayout.findViewWithTag(last)
+            button.isEnabled = false
+            val noughts = 'O'
+            button.text = if (noughts == intent.getCharExtra("symbol", '?')) 'O'.toString() else 'X'.toString()
+            if (game?.isGameOver() == true){
+                showResults()
+            }
+        }
     }
 
 
