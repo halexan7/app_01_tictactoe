@@ -34,6 +34,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     // TODO (suggested): get the player's name, symbol, and the first move choice; pass info to the TicTacToe activity
+    //explicit intent
+    //put extra passes info
     override fun onClick(p0: View?) {
         playerName = findViewById(R.id.playerName)
         val name = playerName.text.toString()

@@ -38,7 +38,8 @@ class TicTacToeActivity : AppCompatActivity(),View.OnClickListener {
         playerInfo.text = "Player $playerName is using $symbol"
 
 
-        // TODO (suggested): using a loop and button tags, update their texts and "onClick" listeners to TicTacToeActivity; remember to disable the button if it corresponds to a computer's first move
+        // TODO (suggested): using a loop and button tags, update their texts and "onClick" listeners to TicTacToeActivity;
+        //  remember to disable the button if it corresponds to a computer's first move
         // hint: use "findViewWithTag"
         gridLayout = findViewById(R.id.gridLayout)
         for (i in 0 until 3){
@@ -48,13 +49,30 @@ class TicTacToeActivity : AppCompatActivity(),View.OnClickListener {
                 button.setOnClickListener(this)
             }
         }
-
+        if (!firstMove){
+            game?.computerPlay()
+            val last = game?.lastMove
+            val i = last?.first?.toInt()
+            val j = last?.second?.toInt()
+            val button: Button = gridLayout.findViewWithTag("$i,$j")
+            button.isEnabled = false
+            button.text = game?.getComputerSymbol().toString()
+        }
     }
 
     // TODO (suggested): display a Toast with a text based on the game's result
     fun showResults() {
         if (game?.isGameOver() == true){
-            Toast.makeText(this, "game over", Toast.LENGTH_LONG).show()
+            val win = game?.getWinner()
+            if (win == game?.getComputerSymbol()){
+                Toast.makeText(this, "I won; computers are superior!!!", Toast.LENGTH_LONG).show()
+            }
+            else if (win == game?.playerSymbol){
+                Toast.makeText(this, "You won; congratulations!!!", Toast.LENGTH_LONG).show()
+            }
+            else {
+                Toast.makeText(this, "Tie!!!", Toast.LENGTH_LONG).show()
+            }
         }
     }
 
@@ -80,11 +98,12 @@ class TicTacToeActivity : AppCompatActivity(),View.OnClickListener {
         }
         else {
             game?.computerPlay()
-            val last = game?.lastMove.toString()
-            val button: Button = gridLayout.findViewWithTag(last)
+            val last = game?.lastMove
+            val i = last?.first?.toInt()
+            val j = last?.second?.toInt()
+            val button: Button = gridLayout.findViewWithTag("$i,$j")
             button.isEnabled = false
-            val noughts = 'O'
-            button.text = if (noughts == intent.getCharExtra("symbol", '?')) 'O'.toString() else 'X'.toString()
+            button.text = game?.getComputerSymbol().toString()
             if (game?.isGameOver() == true){
                 showResults()
             }
