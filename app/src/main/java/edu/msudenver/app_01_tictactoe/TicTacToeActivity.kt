@@ -113,13 +113,15 @@ class TicTacToeActivity : AppCompatActivity(),View.OnClickListener {
     }
 
 
-    // TODO: save the TicTacToe object using the outState Bundle
+    // TODOd: save the TicTacToe object using the outState Bundle
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
+        outState.putSerializable("game",game)
     }
 
-    // TODO: restore the TicTacToe object using the savedInstanceState Bundle
+    // TODOd: restore the TicTacToe object using the savedInstanceState Bundle
     override fun onRestoreInstanceState(savedIntanceState: Bundle) {
         super.onRestoreInstanceState(savedIntanceState)
+        game = savedIntanceState.getSerializable("game") as TicTacToe?
     }
 }
