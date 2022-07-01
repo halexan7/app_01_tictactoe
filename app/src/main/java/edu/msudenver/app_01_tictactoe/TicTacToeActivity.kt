@@ -20,25 +20,27 @@ class TicTacToeActivity : AppCompatActivity(),View.OnClickListener {
 
 
 
-    // TODO (suggested): maintain a reference to a TicTacToe object
+    // TODOd (suggested): maintain a reference to a TicTacToe object
     var game: TicTacToe ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tictactoe)
 
-        // TODO (suggested): get the player's name, symbol, and the first move choice from the activity's intent; use them to instantiate a TicTacToe game; decide whether the computer should play based on the first move choice
+        // TODOd (suggested): get the player's name, symbol, and the first move choice from the activity's intent;
+        //  use them to instantiate a TicTacToe game; decide whether the computer should play based on the first move choice
         val playerName = intent.getStringExtra("name")
         val symbol = intent.getCharExtra("symbol",'?')
         val firstMove = intent.getBooleanExtra("first move",false)
         game = TicTacToe(playerName.toString(), symbol)
 
-        // TODO (suggested): get a reference to the TextView "player info" area; update the TextView with the player's name and symbol
+        // TODOd (suggested): get a reference to the TextView "player info" area;
+        //  update the TextView with the player's name and symbol
         playerInfo = findViewById(R.id.playerInfo)
         playerInfo.text = "Player $playerName is using $symbol"
 
 
-        // TODO (suggested): using a loop and button tags, update their texts and "onClick" listeners to TicTacToeActivity;
+        // TODOd (suggested): using a loop and button tags, update their texts and "onClick" listeners to TicTacToeActivity;
         //  remember to disable the button if it corresponds to a computer's first move
         // hint: use "findViewWithTag"
         gridLayout = findViewById(R.id.gridLayout)
@@ -60,7 +62,7 @@ class TicTacToeActivity : AppCompatActivity(),View.OnClickListener {
         }
     }
 
-    // TODO (suggested): display a Toast with a text based on the game's result
+    // TODOd (suggested): display a Toast with a text based on the game's result
     fun showResults() {
         if (game?.isGameOver() == true){
             val win = game?.getWinner()
@@ -76,7 +78,7 @@ class TicTacToeActivity : AppCompatActivity(),View.OnClickListener {
         }
     }
 
-    // TODO (suggested): cast the given view as a Button;
+    // TODOd (suggested): cast the given view as a Button;
     //  disable the button so you don't forget;
     //  get the button's tag and use it to infer the player's move coordinates;
     //  make the move and update the button's text with the player's symbol;

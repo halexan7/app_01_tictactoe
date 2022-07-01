@@ -7,6 +7,9 @@ package edu.msudenver.tictactoe
  * Description: App 01 - TicTacToe Model class
  */
 
+import android.view.View
+import android.widget.Button
+import android.widget.GridLayout
 import java.io.Serializable
 import kotlin.random.Random
 
@@ -180,7 +183,7 @@ class TicTacToe(playerName: String, playerSymbol: Char = NOUGHTS): Serializable 
         return if (playerSymbol === NOUGHTS) CROSSES else NOUGHTS
     }
 
-    // TODO (required): modify this method to incorporate some (not purely random) strategy
+    // TODOd (required): modify this method to incorporate some (not purely random) strategy
     /**
      * Allow the computer to play a random move (no AI this time)
      * @return true/false depending on whether the move was possible
@@ -188,6 +191,117 @@ class TicTacToe(playerName: String, playerSymbol: Char = NOUGHTS): Serializable 
     fun computerPlay(): Boolean {
         if (canMove()) {
             while (true) {
+                if(board[0][0] == getComputerSymbol() && board[0][1] == getComputerSymbol()){
+                    board[0][2] = getComputerSymbol()
+                    lastMove = Pair(0, 2)
+                    return true
+                }
+                if(board[1][0] == getComputerSymbol() && board[1][1] == getComputerSymbol()){
+                    board[1][2] = getComputerSymbol()
+                    lastMove = Pair(1, 2)
+                    return true
+                }
+                if(board[2][0] == getComputerSymbol() && board[2][1] == getComputerSymbol()){
+                    board[2][2] = getComputerSymbol()
+                    lastMove = Pair(2, 2)
+                    return true
+                }
+                if(board[0][0] == getComputerSymbol() && board[1][0] == getComputerSymbol()){
+                    board[2][0] = getComputerSymbol()
+                    lastMove = Pair(2, 0)
+                    return true
+                }
+                if(board[0][1] == getComputerSymbol() && board[1][1] == getComputerSymbol()){
+                    board[2][1] = getComputerSymbol()
+                    lastMove = Pair(2, 1)
+                    return true
+                }
+                if(board[0][2] == getComputerSymbol() && board[1][2] == getComputerSymbol()){
+                    board[2][2] = getComputerSymbol()
+                    lastMove = Pair(2, 2)
+                    return true
+                }
+                if(board[0][1] == getComputerSymbol() && board[0][2] == getComputerSymbol()){
+                    board[0][0] = getComputerSymbol()
+                    lastMove = Pair(0, 0)
+                    return true
+                }
+                if(board[1][1] == getComputerSymbol() && board[1][2] == getComputerSymbol()){
+                    board[1][0] = getComputerSymbol()
+                    lastMove = Pair(1, 0)
+                    return true
+                }
+                if(board[2][1] == getComputerSymbol() && board[2][2] == getComputerSymbol()){
+                    board[2][0] = getComputerSymbol()
+                    lastMove = Pair(2, 0)
+                    return true
+                }
+                if(board[1][0] == getComputerSymbol() && board[2][0] == getComputerSymbol()){
+                    board[0][0] = getComputerSymbol()
+                    lastMove = Pair(0, 0)
+                    return true
+                }
+                if(board[1][1] == getComputerSymbol() && board[2][1] == getComputerSymbol()){
+                    board[0][1] = getComputerSymbol()
+                    lastMove = Pair(0, 1)
+                    return true
+                }
+                if(board[1][2] == getComputerSymbol() && board[2][2] == getComputerSymbol()){
+                    board[0][2] = getComputerSymbol()
+                    lastMove = Pair(0, 2)
+                    return true
+                }
+                if(board[0][0] == getComputerSymbol() && board[1][1] == getComputerSymbol()){
+                    board[2][2] = getComputerSymbol()
+                    lastMove = Pair(2, 2)
+                    return true
+                }
+                if(board[0][2] == getComputerSymbol() && board[1][1] == getComputerSymbol()){
+                    board[2][0] = getComputerSymbol()
+                    lastMove = Pair(2, 0)
+                    return true
+                }
+                if(board[2][0] == getComputerSymbol() && board[1][1] == getComputerSymbol()){
+                    board[0][2] = getComputerSymbol()
+                    lastMove = Pair(0, 2)
+                    return true
+                }
+                if(board[2][2] == getComputerSymbol() && board[1][1] == getComputerSymbol()){
+                    board[0][0] = getComputerSymbol()
+                    lastMove = Pair(0, 0)
+                    return true
+                }
+                if(board[0][0] == getComputerSymbol() && board[0][2] == getComputerSymbol()){
+                    board[0][1] = getComputerSymbol()
+                    lastMove = Pair(0, 1)
+                    return true
+                }
+                if(board[0][0] == getComputerSymbol() && board[2][2] == getComputerSymbol()){
+                    board[1][1] = getComputerSymbol()
+                    lastMove = Pair(1, 1)
+                    return true
+                }
+                if(board[0][0] == getComputerSymbol() && board[2][0] == getComputerSymbol()){
+                    board[1][0] = getComputerSymbol()
+                    lastMove = Pair(1, 0)
+                    return true
+                }
+
+                if(board[2][2] == getComputerSymbol() && board[0][2] == getComputerSymbol()){
+                    board[1][2] = getComputerSymbol()
+                    lastMove = Pair(1, 2)
+                    return true
+                }
+                if(board[2][0] == getComputerSymbol() && board[2][2] == getComputerSymbol()){
+                    board[2][1] = getComputerSymbol()
+                    lastMove = Pair(2, 1)
+                    return true
+                }
+                if(board[0][0] == getComputerSymbol() && board[2][2] == getComputerSymbol()){
+                    board[1][1] = getComputerSymbol()
+                    lastMove = Pair(1, 1)
+                    return true
+                }
                 val i: Int = Random.nextInt(BOARD_SIZE)
                 val j: Int = Random.nextInt(BOARD_SIZE)
                 if (board[i][j] === BLANK) {

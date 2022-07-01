@@ -28,12 +28,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // TODO (suggested): get a reference to the "play" button and use it to set its "onClick" listener to MainActivity
+        // TODOd (suggested): get a reference to the "play" button and use it to set its "onClick" listener to MainActivity
         playButton = findViewById(R.id.playButton)
         playButton.setOnClickListener(this)
     }
 
-    // TODO (suggested): get the player's name, symbol, and the first move choice; pass info to the TicTacToe activity
+    // TODOd (suggested): get the player's name, symbol, and the first move choice;
+    //  pass info to the TicTacToe activity
     //explicit intent
     //put extra passes info
     override fun onClick(p0: View?) {
